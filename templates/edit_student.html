@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Edit Student</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Student</h1>
+        <form action="{{ url_for('edit_student', email=student[1]) }}" method="POST">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="{{ student[0] }}" required>
+            </div>
+            <div>
+                <label for="contact_number">Contact Number:</label>
+                <input type="text" id="contact_number" name="contact_number" value="{{ student[2] }}" required>
+            </div>
+            <div>
+                <label for="section">Section:</label>
+                <select id="section" name="section" required>
+                    <option value="A" {% if student[3] == 'A' %}selected{% endif %}>A</option>
+                    <option value="B" {% if student[3] == 'B' %}selected{% endif %}>B</option>
+                </select>
+            </div>
+            <div>
+                <label for="collage">College:</label>
+                <input type="text" id="collage" name="collage" value="{{ student[4] }}" required>
+            </div>
+            <div>
+                <button type="submit">Update Student</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

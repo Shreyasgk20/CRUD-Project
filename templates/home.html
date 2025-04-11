@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome to the Customer CRUD Application</h1>
+    <p>This application allows you to manage student records.</p>
+    <ul>
+        <li><a href="{{ url_for('add_student') }}">Add a New Student</a></li>
+        <li><a href="{{ url_for('students') }}">View All Students</a></li>
+    </ul>
+</div>
+{% endblock %}
